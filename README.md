@@ -190,169 +190,350 @@ getId(): java.lang.Thread.getId() Returns the identifier of this Thread
 Syntax:
 
 public long getId()
+
 Returns:
+
 this thread's ID
+
+
+
 getName(): java.lang.Thread.getName() Returns this thread’s name
+
 Syntax:
 
 
-
- 
-
 public final String getName()
+
 Returns:
+
 this thread's name
+
+
+
 getPriority(): java.lang.Thread.getPriority() Returns this thread’s priority
+
+
 Syntax:
 
 public final int getPriority()
+
 Returns:
+
 this thread's priority
+
+
+
 getStackTrace(): java.lang.Thread.getStackTrace() Returns an array of stack trace elements representing the stack dump of this thread
+
 Syntax:
 
 public StackTraceElement[] getStackTrace()
+
 Returns:
+
 an array of StackTraceElement, each represents one stack frame
+
 Throws:
+
 SecurityException - if a security manager exists and its 
+
 checkPermission method doesn't 
+
 allow getting the stack trace of thread
+
+
+
+
 getState(): java.lang.Thread.getState() Returns the state of this thread
+
 Syntax:
 
 public Thread.State getState()
+
 Returns:
+
 this thread's state
+
+
+
+
 getThreadGroup(): java.lang.Thread.getThreadGroup() Returns the thread group to which this thread belongs
+
 Syntax:
 
 public final ThreadGroup getThreadGroup()
+
 Returns:
+
 this thread's thread group
-getUncaughtExceptionHandler(): java.lang.Thread.getUncaughtExceptionHandler() Returns the handler invoked when this thread abruptly terminates due to an uncaught exception
+
+
+
+
+getUncaughtExceptionHandler(): java.lang.Thread.getUncaughtExceptionHandler() Returns the handler invoked when this thread abruptly
+
+terminates due to an uncaught exception
+
+
 Syntax:
 
 public Thread.UncaughtExceptionHandler getUncaughtExceptionHandler()
+
 Returns:
+
 the uncaught exception handler for this thread
-holdsLock(Object obj): java.lang.Thread.holdsLock(Object obj) Returns true if and only if the current thread holds the monitor lock on the specified object
+
+
+
+holdsLock(Object obj): java.lang.Thread.holdsLock(Object obj) Returns true if and only if the current thread holds the monitor lock on
+
+the specified object
+
 Syntax:
 
 public static boolean holdsLock(Object obj)
+
 Parameters:
+
 obj - the object on which to test lock ownership
+
 Returns:
+
 true if the current thread holds the monitor lock 
+
 on the specified object.
+
 Throws:
+
 NullPointerException - if obj is null
+
+
+
+
 interrupt(): java.lang.Thread.interrupt() Interrupts this thread
+
 Syntax:
 
 public void interrupt() 
+
 Throws:
+
 SecurityException - if the current thread cannot modify this thread
+
+
+
+
 interrupted(): java.lang.Thread.interrupted() Tests whether the current thread has been interrupted
+
 Syntax:
 
 public static boolean interrupted()
+
 Returns:
+
 true if the current thread has been interrupted; false otherwise
+
+
+
 isAlive(): java.lang.Thread.isAlive() Tests if this thread is alive
+
 Syntax:
 
 public final boolean isAlive()
+
 Returns:
+
 true if this thread is alive; false otherwise
+
+
+
 isDaemon(): java.lang.Thread.isDaemon() Tests if this thread is a daemon thread
+
 Syntax:
 
 
-
- 
-
 public final boolean isDaemon()
+
 Returns:
+
 true if this thread is a daemon thread; false otherwise
+
+
+
 isInterrupted(): java.lang.Thread.isInterrupted() Tests whether this thread has been interrupted
+
 Syntax:
 
 public boolean isInterrupted()
+
 Returns:
+
 true if this thread has been interrupted; false otherwise
+
+
+
+
 join(): java.lang.Thread.join() Waits for this thread to die
+
 Syntax:
 
 public final void join() throws InterruptedException
+
 Throws:
+
 InterruptedException - if any thread has interrupted the 
+
 current thread. The interrupted status of the current thread is 
+
 cleared when this exception is thrown
+
+
+
+
 join(long millis): java.lang.Thread.join(long millis) Waits at most millis milliseconds for this thread to die
+
 Syntax:
 
 public final void join(long millis) throws InterruptedException
+
 Parameters:
+
 millis - the time to wait in milliseconds
+
 Throws:
 
 IllegalArgumentException - if the value of millis is negative
+
 InterruptedException - if any thread has interrupted the current thread.
+
 The interrupted status of the current thread is cleared 
+
 when this exception is thrown.
-run(): java.lang.Thread.run() If this thread was constructed using a separate Runnable run object, then that Runnable object’s run method is called; otherwise, this method does nothing and returns
+
+
+
+
+run(): java.lang.Thread.run() If this thread was constructed using a separate Runnable run object, then that Runnable object’s run
+
+method is called; otherwise, this method does nothing and returns
+
+
 Syntax:
 
 public void run()
+
 Description:
+
 If this thread was constructed using a separate Runnable run object,
+
 then that Runnable object's run method is called; 
+
 otherwise, this method does nothing and returns.
 
 Subclasses of Thread should override this method.
+
+
+
+
 yield(): java.lang.Thread.yield() A hint to the scheduler that the current thread is willing to yield its current use of a processor
+
+
 Syntax:
 
 public static void yield()
+
 Description:
+
 A hint to the scheduler that the current thread is willing 
+
 to yield its current use of a 
+
 processor. The scheduler is free to ignore this hint
-toString(): java.lang.Thread.toString() Returns a string representation of this thread, including the thread’s name, priority, and thread group
+
+
+
+
+toString(): java.lang.Thread.toString() Returns a string representation of this thread, including the thread’s name, priority, and
+
+thread group
+
+
 Syntax:
 
 public String toString()
+
 Returns:
+
 a string representation of this thread
+
+
+
 start(): java.lang.Thread.start() Causes this thread to begin execution; the Java Virtual Machine calls the run method of this thread
+
+
 Syntax:
 
 public void start()
+
 Throws:
+
 IllegalThreadStateException - if the thread was already started.
-sleep(long millis): java.lang.Thread.sleep(long millis) Causes the currently executing thread to sleep (temporarily cease execution) for the specified number of milliseconds, subject to the precision and accuracy of system timers and schedulers
+
+
+
+sleep(long millis): java.lang.Thread.sleep(long millis) Causes the currently executing thread to sleep (temporarily cease execution) for
+
+the specified number of milliseconds, subject to the precision and accuracy of system timers and schedulers
+
+
 Syntax:
 
 public static void sleep(long millis) throws InterruptedException
+
 Parameters:
+
 millis - the length of time to sleep in milliseconds
+
 Throws:
+
 IllegalArgumentException - if the value of millis is negative
-InterruptedException - if any thread has interrupted the 
-current thread. The interrupted status of the current thread 
+
+InterruptedException - if any thread has interrupted the
+
+current thread. The interrupted status of the current thread
+
 is cleared when this exception is thrown.
-setUncaughtExceptionHandler(Thread.UncaughtExceptionHandler eh): java.lang.Thread.setUncaughtExceptionHandler(Thread.UncaughtExceptionHandler eh) Set the handler invoked when this thread abruptly terminates due to an uncaught exception
+
+
+
+
+setUncaughtExceptionHandler(Thread.UncaughtExceptionHandler eh):
+
+java.lang.Thread.setUncaughtExceptionHandler(Thread.UncaughtExceptionHandler eh) Set the handler invoked when this thread abruptly
+
+terminates due to an uncaught exception
+
+
 Syntax:
 
 public void setUncaughtExceptionHandler(Thread.UncaughtExceptionHandler eh)
+
 Parameters:
+
 eh - the object to use as this thread's uncaught exception handler. 
+
 If null then this thread has no explicit handler.
+
 Throws:
+
 SecurityException - if the current thread is not allowed to
+
 modify this thread.
+
+
+
 setPriority(int newPriority): java.lang.Thread.setPriority(int newPriority) Changes the priority of this thread
+
 Syntax:
 
 
@@ -360,72 +541,152 @@ Syntax:
  
 
 public final void setPriority(int newPriority)
+
 Parameters:
+
 newPriority - priority to set this thread to
+
 Throws:
+
 IllegalArgumentException- If the priority is not in the range 
+
 MIN_PRIORITY to MAX_PRIORITY
+
 SecurityException - if the current thread cannot modify this thread.
+
+
+
+
 setName(String name): java.lang.Thread.setName(String name) Changes the name of this thread to be equal to the argument name.
+
+
 Syntax:
 
 public final void setName(String name)
+
 Parameters:
+
 name - the new name for this thread.
+
 Throws:
+
 SecurityException - if the current thread cannot modify this thread.
-setDefaultUncaughtExceptionHandler(Thread.UncaughtExceptionHandler eh): java.lang.Thread.setDefaultUncaughtExceptionHandler(Thread.UncaughtExceptionHandler eh) Set the default handler invoked when a thread abruptly terminates due to an uncaught exception, and no other handler has been defined for that thread
+
+
+
+
+setDefaultUncaughtExceptionHandler(Thread.UncaughtExceptionHandler eh):
+
+java.lang.Thread.setDefaultUncaughtExceptionHandler(Thread.UncaughtExceptionHandler eh) Set the default handler invoked when a thread
+
+abruptly terminates due to an uncaught exception, and no other handler has been defined for that thread
+
+
+
 Syntax:
 
 public static void setDefaultUncaughtExceptionHandler(Thread.UncaughtExceptionHandler eh)
+
 Parameters:
+
 eh - the object to use as the default uncaught exception handler. 
+
 If null then there is no 
+
 default handler.
+
 Throws:
+
 SecurityException - if a security manager is present and 
+
 it denies RuntimePermission ("setDefaultUncaughtExceptionHandler")
+
+
+
+
+
 setDaemon(boolean on): java.lang.Thread.setDaemon(boolean on) Marks this thread as either a daemon thread or a user thread
+
+
 Syntax:
 
 public final void setDaemon(boolean on)
+
 Parameters:
+
 on - if true, marks this thread as a daemon thread
+
 Throws:
+
 IllegalThreadStateException - if this thread is alive
+
 SecurityException - if checkAccess() determines that the current 
+
 thread cannot modify this thread
-setContextClassLoader(ClassLoader cl): java.lang.Thread.setContextClassLoader(ClassLoader cl) Sets the context ClassLoader for this Thread
+
+
+
+
+setContextClassLoader(ClassLoader cl): java.lang.Thread.setContextClassLoader(ClassLoader cl) Sets the context ClassLoader for this
+
+Thread
+
+
 Syntax:
 
 public void setContextClassLoader(ClassLoader cl)
+
 Parameters:
+
 cl - the context ClassLoader for this Thread, or null indicating the 
+
 system class loader (or, failing that, the bootstrap class loader)
+
 Throws:
+
 SecurityException - if the current thread cannot set the 
+
 context ClassLoader
+
 Methods inherited from class java.lang.Object
 
 equals
+
 finalize
+
 getClass
+
 hashCode
+
 notify
+
 notifyAll
+
 toString
+
 wait
+
 Java program to demonstrate usage of Thread class
 
+
+
 filter_none
+
 edit
+
 play_arrow
 
+
 brightness_4
+
 // Java program to demonstrate 
+
 // method calls of Thread class 
+
 package generic; 
+
 class Helper implements Runnable 
+
 { 
     public void run() 
     { 
@@ -593,7 +854,12 @@ java.lang.Exception: Stack trace
 Reference:
 
 Oracle
-This article is contributed by Mayank Kumar. If you like GeeksforGeeks and would like to contribute, you can also write an article using contribute.geeksforgeeks.org or mail your article to contribute@geeksforgeeks.org. See your article appearing on the GeeksforGeeks main page and help other Geeks.
+
+This article is contributed by Mayank Kumar. If you like GeeksforGeeks and would like to contribute, you can also write an article using
+
+contribute.geeksforgeeks.org or mail your article to contribute@geeksforgeeks.org. See your article appearing on the GeeksforGeeks main
+
+page and help other Geeks.
 
 Please write comments if you find anything incorrect, or you want to share more information about the topic discussed above.
 
@@ -602,18 +868,33 @@ Please write comments if you find anything incorrect, or you want to share more 
  
 
 Recommended Posts:
+
 Implement Quartet Class with Triplet Class in Java using JavaTuples
+
 Implement Pair Class with Unit Class in Java using JavaTuples
+
 Implement Quintet Class with Quartet Class in Java using JavaTuples
+
 Implement Decade Class from Ennead Class in Java using JavaTuples
+
 Implement Octet Class from Septet Class in Java using JavaTuples
+
 Implement Triplet Class with Pair Class in Java using JavaTuples
+
 Implement Ennead Class from Octet Class in Java using JavaTuples
+
 Implement Sextet Class from Quintet Class in Java using JavaTuples
+
 Implement Septet Class from Sextet Class in Java using JavaTuples
+
 Difference between Abstract Class and Concrete Class in Java
+
 Using predefined class name as Class or Variable name in Java
+
 Java.lang.Class class in Java | Set 1
+
 Java.lang.Class class in Java | Set 2
+
 Java.util.concurrent.Phaser class in Java with Examples
+
 Java.util.BitSet class methods in Java with Examples | Set 2
