@@ -836,20 +836,35 @@ Thread[Thread-1, 5, main]
 null
 ]
 {Thread[Signal Dispatcher, 9, system]=[Ljava.lang.StackTraceElement;@33909752, 
+
 Thread[Thread-1, 5, main]=[Ljava.lang.StackTraceElement;@55f96302, 
+
+
 Thread[main, 5, main]=[Ljava.lang.StackTraceElement;@3d4eac69, 
+
 Thread[Attach Listener, 5, system]=[Ljava.lang.StackTraceElement;@42a57993, 
-Thread[Finalizer, 8, system]=[Ljava.lang.StackTraceElement;@75b84c92, 
+
+Thread[Finalizer, 8, system]=[Ljava.lang.StackTraceElement;@75b84c92,
+
 Thread[Reference Handler, 10, system]=[Ljava.lang.StackTraceElement;@6bc7c054}
+
 sun.misc.Launcher$AppClassLoader@73d16e93
+
 null
 Printing stack trace elements for thread1:
+
 ThreadGroup to which thread1 belongs java.lang.ThreadGroup[name=main, maxpri=10]
+
 java.lang.ThreadGroup[name=main, maxpri=10]
+
 Does thread1 holds Lock? false
+
 java.lang.Exception: Stack trace
+
     at java.lang.Thread.dumpStack(Unknown Source)
+    
     at generic.Test.main(Test.java:111)
+
 
 Reference:
 
@@ -898,3 +913,183 @@ Java.lang.Class class in Java | Set 2
 Java.util.concurrent.Phaser class in Java with Examples
 
 Java.util.BitSet class methods in Java with Examples | Set 2
+
+
+
+
+Runnable 
+
+Runnable interface in Java
+
+java.lang.Runnable is an interface that is to be implemented by a class whose instances are intended to be executed by a thread. There
+
+are two ways to start a new Thread – Subclass Thread and implement Runnable. There is no need of subclassing Thread when a task can be
+
+done by overriding only run() method of Runnable.
+
+
+Steps to create a new Thread using Runnable :
+
+1. Create a Runnable implementer and implement run() method.
+
+2. Instantiate Thread class and pass the implementer to the Thread, Thread has a constructor which accepts Runnable instance.
+
+3. Invoke start() of Thread instance, start internally calls run() of the implementer. Invoking start(), creates a new Thread which 
+
+executes the code written in run().
+
+Calling run() directly doesn’t create and start a new Thread, it will run in the same thread. To start a new line of execution, call
+
+start() on the thread.
+
+Example,
+
+filter_none
+
+edit
+
+play_arrow
+
+
+brightness_4
+
+
+public class RunnableDemo { 
+  
+    public static void main(String[] args) 
+    { 
+        System.out.println("Main thread is- "
+                        + Thread.currentThread().getName()); 
+        Thread t1 = new Thread(new RunnableDemo().new RunnableImpl()); 
+        t1.start(); 
+    } 
+  
+    private class RunnableImpl implements Runnable { 
+  
+        public void run() 
+        { 
+            System.out.println(Thread.currentThread().getName() 
+                             + ", executing run() method!"); 
+        } 
+    } 
+} 
+Output:
+
+Main thread is- main
+
+Thread-0, executing run() method!
+
+Output shows two active threads in the program – main thread and Thread-0, main method is executed by the Main thread but invoking
+
+start on RunnableImpl creates and starts a new thread – Thread-0.
+
+
+What happens when Runnable encounters an exception ?
+
+Runnable can’t throw checked exception but RuntimeException can be thrown from run(). Uncaught exceptions are handled by exception
+
+handler of the thread, if JVM can’t handle or catch exceptions, it prints the stack trace and terminates the flow.
+
+
+Example,
+
+
+
+ 
+
+filter_none
+
+edit
+
+play_arrow
+
+
+brightness_4
+
+import java.io.FileNotFoundException; 
+  
+public class RunnableDemo { 
+  
+    public static void main(String[] args) 
+    { 
+        System.out.println("Main thread is- " + 
+                          Thread.currentThread().getName()); 
+        Thread t1 = new Thread(new RunnableDemo().new RunnableImpl()); 
+        t1.start(); 
+    } 
+  
+    private class RunnableImpl implements Runnable { 
+  
+        public void run() 
+        { 
+            System.out.println(Thread.currentThread().getName() 
+                             + ", executing run() method!"); 
+            /** 
+             * Checked exception can't be thrown, Runnable must 
+             * handle checked exception itself. 
+             */
+            try { 
+                throw new FileNotFoundException(); 
+            } 
+            catch (FileNotFoundException e) { 
+                System.out.println("Must catch here!"); 
+                e.printStackTrace(); 
+            } 
+  
+            int r = 1 / 0; 
+            /* 
+             * Below commented line is an example 
+             * of thrown RuntimeException. 
+             */
+            // throw new NullPointerException(); 
+        } 
+    } 
+} 
+Output:
+
+java.io.FileNotFoundException
+    at RunnableDemo$RunnableImpl.run(RunnableDemo.java:25)
+    at java.lang.Thread.run(Thread.java:745)
+Exception in thread "Thread-0" java.lang.ArithmeticException: / by zero
+    at RunnableDemo$RunnableImpl.run(RunnableDemo.java:31)
+    at java.lang.Thread.run(Thread.java:745)
+Output shows that Runnable can’t throw checked exceptions, FileNotFoundException in this case, to the callers, it must handle checked exceptions in the run() but RuntimeExceptions (thrown or auto-generated) are handled by the JVM automatically.
+
+References :
+http://www.javargon.com/2016/11/javalangrunnable-interface.html
+
+
+
+ 
+
+Recommended Posts:
+
+Implement Runnable vs Extend Thread in Java
+
+Main App Implements Runnable | Concurrent Programming Approach 2
+
+Map Interface in Java
+
+Java 8 | IntToDoubleFunction Interface in Java with Examples
+
+Java 8 | BiConsumer Interface in Java with Examples
+
+Java 8 | Consumer Interface in Java with Examples
+
+Java 8 | DoubleToLongFunction Interface in Java with Examples
+
+Java 8 | ObjDoubleConsumer Interface with Example
+
+Map.Entry interface in Java with example
+
+Nested Interface in Java
+
+Java Interface methods
+
+Java 8 | ObjIntConsumer Interface with Example
+
+Java 8 | ObjLongConsumer Interface with Example
+
+Externalizable interface in Java
+
+UnaryOperator Interface in Java
