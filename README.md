@@ -25,11 +25,15 @@ Thread(ThreadGroup group, String name): CAllocates a new Thread object
 Declaration:
 
 public class Thread
+
     extends Object
+    
     implements Runnable
+    
 Methods:
 
 activeCount(): java.lang.Thread.activeCount() Returns an estimate of the number of active threads in the current thread’s thread group and its subgroups
+
 Syntax:
 
 
@@ -37,76 +41,152 @@ Syntax:
  
 
 public static int activeCount()
+
 Returns:
+
 an estimate of the number of active threads in the current
+
 thread's thread group and in any other thread group that has 
+
 the current thread's thread group as an ancestor
+
+
+
 checkAccess(): java.lang.Thread.checkAccess() Determines if the currently running thread has permission to modify this thread
+
 Syntax:
 
 public final void checkAccess()
+
 Throws:
+
 SecurityException - if the current thread is not allowed to 
+
 access this thread.
+
 clone(): java.lang.Thread.clone() Throws CloneNotSupportedException as a Thread can not be meaningfully cloned
+
 Syntax:
 
 protected Object clone() throws CloneNotSupportedException
+
 Throws:
+
+
+
 CloneNotSupportedException - always
+
 Returns:
+
 a clone of this instance
+
 currentThread(): java.lang.Thread.currentThread() Returns a reference to the currently executing thread object
+
 Syntax:
 
 public static Thread currentThread()
+
 Returns:
+
 the currently executing thread
+
+
+
 dumpStack(): java.lang.Thread.dumpStack() Prints a stack trace of the current thread to the standard error stream
+
 Syntax:
 
 public static void dumpStack()
+
 Description:
+
 Prints a stack trace of the current thread to the standard
+
 error stream. This method is used only for debugging
-enumerate(Thread[] tarray): java.lang.Thread.enumerate(Thread[] tarray) Copies into the specified array every active thread in the current thread’s thread group and its subgroups
+
+
+
+enumerate(Thread[] tarray): java.lang.Thread.enumerate(Thread[] tarray) Copies into the specified array every active thread in the 
+
+current thread’s thread group and its subgroups
+
+
 Syntax:
 
 public static int enumerate(Thread[] tarray)
+
 Parameters:
+
 tarray - an array into which to put the list of threads
+
 Returns:
+
 the number of threads put into the array
+
 Throws:
+
 SecurityException - if ThreadGroup.checkAccess() 
+
 determines that the current thread cannot 
+
 access its thread group
+
+
+
 getAllStackTraces(): java.lang.Thread.getAllStackTraces() Returns a map of stack traces for all live threads
+
 Syntax:
 
 public static Map getAllStackTraces()
+
 Returns:
+
 a Map from Thread to an array of StackTraceElement that represents 
+
 the stack trace of the corresponding thread
+
 Throws:
+
 SecurityException - if a security manager exists and its checkPermission method 
+
 doesn't allow getting the stack trace of thread
+
+
+
 getContextClassLoader(): java.lang.Thread.getContextClassLoader() Returns the context ClassLoader for this Thread
+
 Syntax:
 
 public ClassLoader getContextClassLoader()
+
 Returns:
+
 the context ClassLoader for this Thread, or null indicating the system class loader 
+
 (or, failing that, the bootstrap class loader)
+
 Throws: 
+
 SecurityException - if the current thread cannot get the context ClassLoader
-getDefaultUncaughtExceptionHandler(): java.lang.Thread.getDefaultUncaughtExceptionHandler() Returns the default handler invoked when a thread abruptly terminates due to an uncaught exception
+
+
+
+getDefaultUncaughtExceptionHandler(): java.lang.Thread.getDefaultUncaughtExceptionHandler() Returns the default handler invoked when a
+
+thread abruptly terminates due to an uncaught exception
+
 Syntax:
 
 public static Thread.UncaughtExceptionHandler getDefaultUncaughtExceptionHandler()
+
 Returns:
+
 the default uncaught exception handler for all threads
+
+
+
 getId(): java.lang.Thread.getId() Returns the identifier of this Thread
+
 Syntax:
 
 public long getId()
